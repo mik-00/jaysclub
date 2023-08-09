@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<body>
+    <!--Warning message with buttons-->
+    <form method="POST">{% csrf_token %}
+        <p>Are you sure you want to delete "{{reports.title}}"?</p>
+        <p>This action can't be undone.</p>
+        <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+        <input type="submit" class='btn btn-danger' value="Confirm"/>
+    </form>
+</body>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<head>
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+    <!--Warning message with buttons-->
+    <form method="POST">{% csrf_token %}
+        <p>Are you sure you want to delete "{{posts.title}}"?</p>
+        <p>This action can't be undone.</p>
+        <a href="{% url 'blog_list' %}" class="btn btn-secondary">Back</a>
+        <input type="submit" class='btn btn-danger' value="Confirm"/>
+    </form>
+</body>
+{% endblock %}

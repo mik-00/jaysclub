@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Create Blog Post</title>
+</head>
+<body>
+    <h2>Create Blog Post</h2>
+    <!--Post form for creation begins here-->
+    <form method="POST">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success my-2">Submit</button>
+    </form>
+    <!--Post form for creation ends here-->
+
+    <!--Form errors display if applicable-->
+    {% if form.errors %}
+    <div class="alert alert-danger my-2">
+        {{form.errors.title.as_text}}
+    </div>
+    {% endif %}
+    <!--User can cancel the creation and return to the home page-->
+    <a href="{% url 'blog_list' %}" class="btn btn-secondary">Cancel</a>
+</body>
+{% endblock %} 

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+<head>
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+    .row {
+        display: flex;
+    }
+    .column {
+	    width: 50%;
+    }
+    </style>
+    <!--Head section of the SportsRadar widget-->
+    <script type="application/javascript" src="https://widgets.media.sportradar.com/uscommon/widgetloader" data-sr-language="en_us" async></script>
+</head>
+<body>
+    <h1>Toronto Blue Jays</h1>
+    <div class="row">
+        <!--Display of basic statistics and standings begins here-->
+        <div class="column">
+            Home City: Toronto, Ontario, Canada<br>
+            Ballpark: Rogers Centre<br>
+            World Series Titles: 1992, 1993<br><br>
+            Principal Owner: Rogers Communications<br>
+            President: Mark Shapiro<br>
+            General Manager: Ross Atkins<br>
+            Manager: John Schneider<br>
+            <div class="my-5">
+                <h4>Current AL East Standings</h4>
+                <!--Display standings as-is using pre-formatted monospaced text-->
+                <pre class="my-3" style="font-size: 15px; color:rgb(71, 71, 71);">{{standings}}</pre>
+            </div>
+        </div>
+        <!--Display of basic statistics and standings ends here-->
+        <!--Display of page buttons and widget begins here-->
+        <div class="column" style="height:600px"> 
+            <div class="row">
+                <div class="column">
+                    <a href="{% url 'batters' %}" class="btn mb-4 btn-secondary btn-block">2023 Individual Batting</a>
+                </div>
+                <div class="column">
+                    <a href="{% url 'pitchers' %}" class="btn mb-4 ms-2 btn-secondary btn-block">2023 Individual Pitching</a>
+                </div>
+            </div>
+            <!--Body section of the SportsRadar widget-->
+            <div class="sr-widget" data-sr-widget="us.season.mlb.teamStatsGraphic" data-sr-border="false" data-sr-season-id="100127" data-sr-team-uid="3642"></div>
+        </div>
+        <!--Display of page buttons and widget ends here-->
+    </div>
+</body>
+{% endblock %}

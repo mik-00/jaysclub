@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <!--Banner for post display-->
+    <div class="banner p-2 ps-3 mb-4">Blog Post</div>
+    <!--Post detail display begins here-->
+    <div>
+        <h1>{{post.title}}</h1>
+        <p>By {{post.user}} | {{post.created}}</p>
+        <p class="py-3">{{post.body}}</p>
+    </div>
+    <!--Post detail display ends here-->
+
+    <!--Action buttons menu begins here-->
+    <a href="{% url 'blog_list' %}" class="btn btn-secondary my-5">Back</a>
+    <!--Only display edit and delete buttons if the logged-in user is the same as the author-->
+    {% if post.user == request.user %}
+    <a href="{% url 'post_update' pk=post.id %}" class="btn btn-secondary my-5">Edit</a>
+    <a href="{% url 'post_delete' pk=post.id %}" class="btn btn-danger my-5">Delete</a>
+    {% endif %}
+    <!--Action buttons menu begins here-->
+</body>
+{% endblock %}

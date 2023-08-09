@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<body>
+    <h1>Reports Library</h1>
+    <p>Complete list of Jays Club news reports and game analyses. Reports must be approved by our admin before they are published.</p>
+    <div class="d-grid gap-3 my-3">
+        <!--Display entire list of reports-->
+        {% for report in reports_list %}
+        <!--Each report contained in a border, thumbnails omitted-->
+        <div class="p-3 border" style="border-radius: 10px;">
+            <a href="{% url 'report_detail' pk=report.id %}" class="text-dark text-decoration-non">
+                <p>{{report.title}}</p>
+            </a>
+            <!--Display user who created the report, date created, and some of the body-->
+            <p>By {{report.user}} | {{report.created}}</p> {{report.body|truncatechars:165}}
+        </div>
+        <!--If list is empty, display message-->
+        {% empty %}
+            No reports here.
+        {% endfor %}
+    </div>
+</body>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+<head>
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Blog</title>
+    <style>
+    * {
+        box-sizing: border-box;
+    }
+    .row {
+        display: flex;
+    }
+    .c20 {
+	    width: 20%;
+    }
+
+    .c80 {
+	    width: 80%;
+    }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <div class="column c80">
+            <h1>Have Your Say</h1>
+            <p>Welcome to the Jays Club fan blog. This is the spot to share your thoughts and opinions on the team.</p>
+        </div>
+        <!--Button for creating a new post-->
+        <div class="column c20">
+            <a href="{% url 'post_new' %}" class="btn btn-dark btn-lg" style="float:right;">Create Post</a>
+        </div>
+    </div>
+
+    <div class="d-grid gap-3 my-3">
+        <!--Display entire list of posts-->
+        {% if posts %}
+        {% for post in posts %}
+        <!--Each post contained in a border-->
+        <div class="p-3 border" style="border-radius: 10px;">
+            <a href="{% url 'post_detail' pk=post.id %}" class="text-dark text-decoration-non">
+                <p>{{post.title}}</p>
+            </a>
+            <!--Display user who created the post, date posted, and some of the body-->
+            <p>By {{post.user}} | {{post.created}}</p> {{post.body|truncatechars:165}}
+        </div>
+        {% endfor %}
+        <!--If list is empty, display message-->
+        {% else %}
+            No posts yet.
+        {% endif %}
+    </div>
+</body>
+{% endblock %}

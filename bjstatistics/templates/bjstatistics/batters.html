@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<head>
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+    <h1>2023 Individual Batting Statistics</h1>
+    <!--Display statistics as-is using pre-formatted monospaced text-->
+    <pre class="my-4">{{batting}}</pre>
+    <!--Display definitions for non-obvious stats-->
+    <pre style="font-family:Helvetica">PA = Plate appearances   BB = Walks   OBP = On-base percentage   OPS = On-base plus slugging   SLG = Slugging percentage</pre>
+    <!--Button to return to statistics dashboard-->
+    <a href="{% url 'statshome' %}" class="btn btn-secondary my-3">Back</a>
+</body>
+{% endblock %}

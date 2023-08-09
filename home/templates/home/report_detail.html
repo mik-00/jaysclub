@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <!--Banner for reports display-->
+    <div class="banner p-2 ps-3 mb-4">News & Analysis</div>
+    <!--Report detail display begins here-->
+    <div>
+        <h1>{{report.title}}</h1>
+        <p>By {{report.user}} | {{report.created}}</p>
+        <figure>
+            <img src="{{report.report_img.url}}" width="auto" height="400px" class="my-3">
+            <figcaption style="color: rgb(141, 141, 141);">{{report.img_caption}}</figcaption>
+        </figure>
+        <p class="py-3">{{report.body}}</p>
+        <hr>
+    </div>
+    <!--Report detail display ends here-->
+
+    <!--Action buttons menu begins here-->
+    <a href="{% url 'home' %}" class="btn btn-secondary my-3">Home</a>
+    <!--Only display edit and delete buttons if the logged-in user is the same as the author-->
+    {% if report.user == request.user %}
+        <a href="{% url 'report_update' pk=report.id %}" class="btn btn-secondary my-3">Edit</a>
+        <a href="{% url 'report_delete' pk=report.id %}" class="btn btn-danger my-3">Delete</a>
+    {% endif %}
+    <!--Action buttons menu ends here-->
+</body>
+{% endblock %}

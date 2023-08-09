@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<body>
+    <h1>Create an account</h1>
+    <!--Display forms and submit button for user creation-->
+    <form method='post' style='text-align: left; margin: 50 auto; width: 700px'>{% csrf_token %}
+        {{form.as_p}}
+        <input class="btn btn-dark" type="submit" name="Submit"/>
+    </form>
+</body>
+{% endblock %}
