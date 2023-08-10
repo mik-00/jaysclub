@@ -1,0 +1,1 @@
+web gunicorn jaysclub.wsgi:application --log-file -
