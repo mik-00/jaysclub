@@ -6,11 +6,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="Toronto Blue Jays Fan Site featuring a fan blog, season schedule and up-to-date stats.">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-        <style>    
-        .navbar-brand{ 
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <style>
+        .navbar-brand{
             font-family: "Helvetica Neue" !important;
             font-size: 1.7rem !important;
             font-weight: bold;
+        }
+        .flex-wrapper {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+            justify-content: space-between;
         }
         </style>
     </head>
@@ -45,15 +52,20 @@
         </nav>
         <!--Navbar display ends here-->
         
-        <!--Block to extend the template with other pages-->
-        <div class="my-5 text-left container">
-            {% block content %}
-            {% endblock %}
-        </div>
+        <div class="flex-wrapper">
+            <!--Block to extend the template with other pages-->
+            <div class="my-5 text-left container">
+                {% block content %}
+                {% endblock %}
+            </div>
 
-        <!--Footer display-->
-        <div class="m-2 bg-light" style="position: absolute; width: 100%; text-align: center; font-size: 0.75rem;">
-            <p class="m-4"> Jays Club is a web app by a student. v1.0. </p>
+            <!--Footer display-->
+            <footer class="m-2 bg-light" style="margin-top: auto; height: 70px; text-align: center;">
+                <p class="m-4" style="font-size: 0.75rem;"> 
+                    Jays Club is a web app by a student. v1.1. 
+                    <a href="https://github.com/mik-00">GitHub</a>
+                </p>
+            </footer>
         </div>
     </body> 
 </html>
