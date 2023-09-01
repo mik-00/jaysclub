@@ -12,7 +12,7 @@ There are three apps within the project.
 <img width="1464" alt="Screenshot 2023-08-21 at 11 43 30 AM" src="https://github.com/mik-00/jaysclub/assets/99516297/d3fcee51-91da-43f3-b82c-1613bfd49a64">
 <img width="1464" alt="Screenshot 2023-08-21 at 11 42 42 AM" src="https://github.com/mik-00/jaysclub/assets/99516297/b099b245-aa0a-4a7a-bb23-dc2fdad2f6d0">
 <img width="1464" alt="Screenshot 2023-08-21 at 11 42 32 AM" src="https://github.com/mik-00/jaysclub/assets/99516297/72f82747-1c90-49e9-828a-72e4d271af77">
-
+<img width="1464" alt="Screenshot 2023-09-01 at 12 40 07 PM" src="https://github.com/mik-00/jaysclub/assets/99516297/b60c37a3-e37a-4d34-989b-7c2cb5459558">
 
 ### Contributions
 Contributions are welcomed. To do this, follow the steps:
